@@ -1,6 +1,6 @@
 # What is RHCR?
 
-RHCR is a Russian Handwriting Character Recognition (RHCR) project powered by Tensorflow
+RHCR is a Russian Handwriting Character Recognition (RHCR) project powered by TensorFlow
 
 ## How did RHCR come about?
 
@@ -10,11 +10,15 @@ Aaron joined when he mentioned wanting to learn how to use some TensorFlow and w
 
 ## How it works
 
-This repo is in development and uses Tensorflow to perform handwriting recognition.
+This repo is in development and uses TensorFlow 2 to perform handwriting recognition.
 
 Synthetic Data is in ```/synthetic_data_generation```
 
 Model development, training code, and saved models are in ```/model_training```
+
+## Current Status
+From Ray:
+"We left off at the final stages of synthetic data generation, but work could definitely be started on the model structure but the accuracy will be pointless"
 
 ## Future Steps
 1. Refactor to proper Tensorflow 2
