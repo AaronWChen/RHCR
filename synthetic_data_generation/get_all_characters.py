@@ -10,7 +10,7 @@ import traceback
 from random import choice, sample
 from functools import partial
 from multiprocessing import Pool
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont     # This is actually pillow code, not PIL
 import csv
 
 

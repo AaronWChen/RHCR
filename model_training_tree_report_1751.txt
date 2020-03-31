@@ -1,0 +1,103 @@
+TensorFlow 2.0 Upgrade Script
+-----------------------------
+Converted 3 files
+Detected 3 issues that require attention
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+File: model_training/mnist/MNIST_CNN.py
+--------------------------------------------------------------------------------
+model_training/mnist/MNIST_CNN.py:80:10: ERROR: Using member tf.contrib.learn.datasets.load_dataset in deprecated module tf.contrib. tf.contrib.learn.datasets.load_dataset cannot be converted automatically. tf.contrib will not be distributed with TensorFlow 2.0, please consider an alternative in non-contrib TensorFlow, a community-maintained repository such as tensorflow/addons, or fork the required code.
+--------------------------------------------------------------------------------
+File: model_training/mnist/mnist_saved_model.py
+--------------------------------------------------------------------------------
+model_training/mnist/mnist_saved_model.py:72:10: ERROR: Using member tf.contrib.lookup.index_to_string_table_from_tensor in deprecated module tf.contrib. tf.contrib.lookup.index_to_string_table_from_tensor cannot be converted automatically. tf.contrib will not be distributed with TensorFlow 2.0, please consider an alternative in non-contrib TensorFlow, a community-maintained repository such as tensorflow/addons, or fork the required code.
+model_training/mnist/mnist_saved_model.py:139:2: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+================================================================================
+Detailed log follows:
+
+================================================================================
+================================================================================
+Input tree: 'model_training/'
+================================================================================
+--------------------------------------------------------------------------------
+Processing file 'model_training/mnist/MNIST_CNN.py'
+ outputting to 'model_training_v2/mnist/MNIST_CNN.py'
+--------------------------------------------------------------------------------
+
+11:0: INFO: Renamed 'tf.logging.set_verbosity' to 'tf.compat.v1.logging.set_verbosity'
+11:25: INFO: Renamed 'tf.logging.INFO' to 'tf.compat.v1.logging.INFO'
+21:10: INFO: Renamed 'tf.layers.conv2d' to 'tf.compat.v1.layers.conv2d'
+29:10: INFO: Renamed 'tf.layers.max_pooling2d' to 'tf.compat.v1.layers.max_pooling2d'
+32:10: INFO: Renamed 'tf.layers.conv2d' to 'tf.compat.v1.layers.conv2d'
+38:10: INFO: Renamed 'tf.layers.max_pooling2d' to 'tf.compat.v1.layers.max_pooling2d'
+42:10: INFO: Renamed 'tf.layers.dense' to 'tf.compat.v1.layers.dense'
+43:12: INFO: Renamed 'tf.layers.dropout' to 'tf.compat.v1.layers.dropout'
+47:11: INFO: Renamed 'tf.layers.dense' to 'tf.compat.v1.layers.dense'
+61:9: INFO: tf.losses.sparse_softmax_cross_entropy requires manual check. tf.losses have been replaced with object oriented versions in TF 2.0 and after. The loss function calls have been converted to compat.v1 for backward compatibility. Please update these calls to the TF 2.0 versions.
+61:9: INFO: Renamed 'tf.losses.sparse_softmax_cross_entropy' to 'tf.compat.v1.losses.sparse_softmax_cross_entropy'
+65:16: INFO: Renamed 'tf.train.GradientDescentOptimizer' to 'tf.compat.v1.train.GradientDescentOptimizer'
+68:20: INFO: Renamed 'tf.train.get_global_step' to 'tf.compat.v1.train.get_global_step'
+73:18: INFO: tf.metrics.accuracy requires manual check. tf.metrics have been replaced with object oriented versions in TF 2.0 and after. The metric function calls have been converted to compat.v1 for backward compatibility. Please update these calls to the TF 2.0 versions.
+73:18: INFO: Renamed 'tf.metrics.accuracy' to 'tf.compat.v1.metrics.accuracy'
+80:10: ERROR: Using member tf.contrib.learn.datasets.load_dataset in deprecated module tf.contrib. tf.contrib.learn.datasets.load_dataset cannot be converted automatically. tf.contrib will not be distributed with TensorFlow 2.0, please consider an alternative in non-contrib TensorFlow, a community-maintained repository such as tensorflow/addons, or fork the required code.
+92:17: INFO: Renamed 'tf.train.LoggingTensorHook' to 'tf.estimator.LoggingTensorHook'
+96:19: INFO: Renamed 'tf.estimator.inputs.numpy_input_fn' to 'tf.compat.v1.estimator.inputs.numpy_input_fn'
+108:18: INFO: Renamed 'tf.estimator.inputs.numpy_input_fn' to 'tf.compat.v1.estimator.inputs.numpy_input_fn'
+118:2: INFO: Renamed 'tf.app.run' to 'tf.compat.v1.app.run'
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'model_training/mnist/mnist_saved_model.py'
+ outputting to 'model_training_v2/mnist/mnist_saved_model.py'
+--------------------------------------------------------------------------------
+
+37:0: INFO: Renamed 'tf.app.flags' to 'tf.compat.v1.app.flags'
+39:0: INFO: Renamed 'tf.app.flags' to 'tf.compat.v1.app.flags'
+40:0: INFO: Renamed 'tf.app.flags' to 'tf.compat.v1.app.flags'
+41:8: INFO: Renamed 'tf.app.flags' to 'tf.compat.v1.app.flags'
+59:9: INFO: Renamed 'tf.InteractiveSession' to 'tf.compat.v1.InteractiveSession'
+60:26: INFO: Renamed 'tf.placeholder' to 'tf.compat.v1.placeholder'
+61:26: INFO: Renamed 'tf.FixedLenFeature' to 'tf.io.FixedLenFeature'
+62:15: INFO: Added keywords to args of function 'tf.parse_example'
+62:15: INFO: Renamed 'tf.parse_example' to 'tf.io.parse_example'
+64:7: INFO: Renamed 'tf.placeholder' to 'tf.compat.v1.placeholder'
+67:11: INFO: Renamed 'tf.global_variables_initializer' to 'tf.compat.v1.global_variables_initializer'
+69:19: INFO: Added keywords to args of function 'tf.reduce_sum'
+69:38: INFO: Renamed 'tf.log' to 'tf.math.log'
+70:15: INFO: Renamed 'tf.train.GradientDescentOptimizer' to 'tf.compat.v1.train.GradientDescentOptimizer'
+72:10: ERROR: Using member tf.contrib.lookup.index_to_string_table_from_tensor in deprecated module tf.contrib. tf.contrib.lookup.index_to_string_table_from_tensor cannot be converted automatically. tf.contrib will not be distributed with TensorFlow 2.0, please consider an alternative in non-contrib TensorFlow, a community-maintained repository such as tensorflow/addons, or fork the required code.
+74:36: INFO: Changed tf.to_int64 call to tf.cast(..., dtype=tf.int64).
+78:32: INFO: Added keywords to args of function 'tf.argmax'
+78:49: INFO: Added keywords to args of function 'tf.argmax'
+79:13: INFO: Added keywords to args of function 'tf.reduce_mean'
+96:12: INFO: Renamed 'tf.saved_model.builder.SavedModelBuilder' to 'tf.compat.v1.saved_model.builder.SavedModelBuilder'
+99:26: INFO: Renamed 'tf.saved_model.utils.build_tensor_info' to 'tf.compat.v1.saved_model.utils.build_tensor_info'
+101:35: INFO: Renamed 'tf.saved_model.utils.build_tensor_info' to 'tf.compat.v1.saved_model.utils.build_tensor_info'
+103:34: INFO: Renamed 'tf.saved_model.utils.build_tensor_info' to 'tf.compat.v1.saved_model.utils.build_tensor_info'
+106:6: INFO: Renamed 'tf.saved_model.signature_def_utils.build_signature_def' to 'tf.compat.v1.saved_model.signature_def_utils.build_signature_def'
+108:14: INFO: Renamed 'tf.saved_model.signature_constants.CLASSIFY_INPUTS' to 'tf.saved_model.CLASSIFY_INPUTS'
+112:14: INFO: Renamed 'tf.saved_model.signature_constants.CLASSIFY_OUTPUT_CLASSES' to 'tf.saved_model.CLASSIFY_OUTPUT_CLASSES'
+114:14: INFO: Renamed 'tf.saved_model.signature_constants.CLASSIFY_OUTPUT_SCORES' to 'tf.saved_model.CLASSIFY_OUTPUT_SCORES'
+117:22: INFO: Renamed 'tf.saved_model.signature_constants.CLASSIFY_METHOD_NAME' to 'tf.saved_model.CLASSIFY_METHOD_NAME'
+119:18: INFO: Renamed 'tf.saved_model.utils.build_tensor_info' to 'tf.compat.v1.saved_model.utils.build_tensor_info'
+120:18: INFO: Renamed 'tf.saved_model.utils.build_tensor_info' to 'tf.compat.v1.saved_model.utils.build_tensor_info'
+123:6: INFO: Renamed 'tf.saved_model.signature_def_utils.build_signature_def' to 'tf.compat.v1.saved_model.signature_def_utils.build_signature_def'
+126:22: INFO: Renamed 'tf.saved_model.signature_constants.PREDICT_METHOD_NAME' to 'tf.saved_model.PREDICT_METHOD_NAME'
+129:13: INFO: Renamed 'tf.saved_model.tag_constants.SERVING' to 'tf.saved_model.SERVING'
+133:10: INFO: Renamed 'tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY' to 'tf.saved_model.DEFAULT_SERVING_SIGNATURE_DEF_KEY'
+136:14: INFO: Renamed 'tf.tables_initializer' to 'tf.compat.v1.tables_initializer'
+139:2: WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.save now saves to the Tensorflow SavedModel format by default, instead of HDF5. To continue saving to HDF5, add the argument save_format='h5' to the save() function.
+145:4: INFO: Renamed 'tf.app.run' to 'tf.compat.v1.app.run'
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+Processing file 'model_training/mnist/mnist_saved_model_tf2.py'
+ outputting to 'model_training_v2/mnist/mnist_saved_model_tf2.py'
+--------------------------------------------------------------------------------
+
+32:0: INFO: Renamed 'tf.app.flags' to 'tf.compat.v1.app.flags'
+34:0: INFO: Renamed 'tf.app.flags' to 'tf.compat.v1.app.flags'
+35:0: INFO: Renamed 'tf.app.flags' to 'tf.compat.v1.app.flags'
+36:8: INFO: Renamed 'tf.app.flags' to 'tf.compat.v1.app.flags'
+--------------------------------------------------------------------------------
+
