@@ -20,6 +20,8 @@ Model development, training code, and saved models are in ```/model_training```
 From Ray:
 "We left off at the final stages of synthetic data generation, but work could definitely be started on the model structure but the accuracy will be pointless"
 
+Ran the TensorFlow TF2 migration script, but because the original mnist_saved_model script used tf.contrib, there will need to be manual code refactoring.
+
 ## Future Steps
 1. Refactor to proper Tensorflow 2
 2. Refactor from PIL to Pillow (Pillow supports Python 3, PIL does not)
