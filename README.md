@@ -18,7 +18,7 @@ Model development, training code, and saved models are in ```/model_training```
 
 From phone call with Ray on April 6
 1. Run wikidump
-2. Run traindata
+2. Run traindata 
 
 ## Current Status
 From Ray:
